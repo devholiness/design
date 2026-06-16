@@ -27,10 +27,19 @@
     padding:0 32px;height:56px;
     border-bottom:1px solid rgba(255,255,255,0.06);
   }
-  nav .nav-logo img{
-    max-height: 40px; /* Controla a altura do logo para não quebrar a barra */
-    width: auto;
+  nav .nav-logo{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
   }
+  nav .nav-logo img{
+    width: 85px;          /* Largura padrão que você deseja para o menu */
+    min-width: 80px;      /* GARANTE A DIRETRIZ: Nunca ficará menor que 80px */
+    height: auto;         /* Mantém a proporção correta do logo */
+    max-height: 44px;     /* Evita que ele encoste nas bordas do menu de 64px */
+    object-fit: contain;
+  }
+
   nav ul{
     list-style:none;display:flex;gap:20px;
     overflow-x:auto;padding:0 8px;
@@ -454,8 +463,8 @@
 
 <!-- NAV DESKTOP -->
 <nav>
-  <div class="nav-logo">
-  <img src="logos/logo-holiness_branco.png" alt="IEHP" style="height: 40px; width: auto; display: block;">
+<div class="nav-logo">
+  <img src="logos/logo-holiness_branco.png" alt="IEHP">
 </div>
   <ul>
     <li><a href="#capa" class="nav-link">Início</a></li>
