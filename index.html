@@ -27,10 +27,9 @@
     padding:0 32px;height:56px;
     border-bottom:1px solid rgba(255,255,255,0.06);
   }
-  nav .nav-logo{
-    color:#fff;font-weight:900;font-size:14px;
-    letter-spacing:3px;text-transform:uppercase;
-    flex-shrink:0;
+  nav .nav-logo img{
+    max-height: 40px; /* Controla a altura do logo para não quebrar a barra */
+    width: auto;
   }
   nav ul{
     list-style:none;display:flex;gap:20px;
@@ -455,7 +454,9 @@
 
 <!-- NAV DESKTOP -->
 <nav>
-  <div class="nav-logo">IEHP</div>
+  <div class="nav-logo">
+  <img src="logos/logo-holiness_branco.png" alt="IEHP" style="height: 40px; width: auto; display: block;">
+</div>
   <ul>
     <li><a href="#capa" class="nav-link">Início</a></li>
     <li><a href="#marca" class="nav-link">Marca</a></li>
