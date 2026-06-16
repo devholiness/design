@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manual de Identidade Visual — IEHP</title>
-<!-- Preconnect para otimizar o carregamento da fonte -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -20,17 +17,14 @@
   body{font-family:'Montserrat',sans-serif;background:#fff;color:#000;}
 
   /* ══ NAV ══ */
-  header{
+  nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     background:rgba(10,10,10,0.97);
     backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.06);
-  }
-  nav{
     display:flex;align-items:center;
     justify-content:space-between;
     padding:0 32px;height:56px;
-    max-width: 1600px; margin: 0 auto;
+    border-bottom:1px solid rgba(255,255,255,0.06);
   }
   nav .nav-logo{
     color:#fff;font-weight:900;font-size:14px;
@@ -51,7 +45,7 @@
   }
   nav ul li a:hover{opacity:1;color:var(--azul);}
 
-  /* ══ HAMBURGER ANIMADO ══ */
+  /* ══ HAMBURGER (mobile) ══ */
   .hamburger{
     display:none;flex-direction:column;gap:5px;
     cursor:pointer;padding:4px;background:none;border:none;
@@ -61,11 +55,6 @@
     background:#fff;border-radius:2px;
     transition:all .3s;
   }
-  /* Transformação para o X */
-  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
   .mobile-menu{
     display:none;position:fixed;top:56px;left:0;right:0;
     background:rgba(10,10,10,0.98);z-index:99;
@@ -110,11 +99,16 @@
     max-width:580px;line-height:1.9;margin-bottom:48px;
   }
 
-  /* ══ CAPA ══ */
+  /* ══════════════════════════════════════
+     01 — CAPA
+  ══════════════════════════════════════ */
   #capa{
     background:var(--preto);
-    justify-content:flex-start;padding:0;
-    min-height:100vh;position:relative;overflow:hidden;
+    justify-content:flex-start;
+    padding:0;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
   }
   .capa-bg{
     position:absolute;inset:0;
@@ -302,25 +296,15 @@
   .body-s{font-size:13px;font-weight:300;color:#444;}
   .cap-s{font-size:11px;font-weight:300;color:#999;}
 
-  /* ══ CORES (Com melhoria de Click-to-copy) ══ */
+  /* ══ CORES ══ */
   .colors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .color-card{border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
   .color-swatch{height:160px;}
   .color-info{padding:24px;background:#fff;}
   .color-name{font-size:14px;font-weight:800;margin-bottom:12px;}
   .color-codes{display:flex;flex-direction:column;gap:6px;}
-  .color-code{font-size:11px;color:#aaa;font-weight:300;cursor:pointer;padding:4px;border-radius:4px;transition:background 0.2s;}
-  .color-code:hover{background:#f5f5f5;}
+  .color-code{font-size:11px;color:#aaa;font-weight:300;}
   .color-code span{font-weight:700;color:#000;}
-  
-  /* Toast temporário de copiado */
-  .toast {
-    position: fixed; bottom: 20px; right: 20px; background: var(--azul); color: white;
-    padding: 12px 24px; border-radius: 8px; font-size: 12px; font-weight: 700;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); opacity: 0; transform: translateY(20px);
-    transition: all 0.3s ease; z-index: 1000; pointer-events: none;
-  }
-  .toast.show { opacity: 1; transform: translateY(0); }
 
   /* ══ PROPORÇÃO ══ */
   .prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -339,7 +323,7 @@
   .files-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   .file-card{
     background:#fff;border-radius:12px;padding:28px 16px;
-    text-align:center;border:1px solid #eee; text-decoration:none; color:inherit; display:block;
+    text-align:center;border:1px solid #eee;
     transition:transform .2s,box-shadow .2s,border-color .2s;
   }
   .file-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.1);border-color:var(--azul);}
@@ -441,25 +425,24 @@
 </head>
 <body>
 
-<header>
-  <nav>
-    <div class="nav-logo">IEHP</div>
-    <ul>
-      <li><a href="#capa">Início</a></li>
-      <li><a href="#marca">Marca</a></li>
-      <li><a href="#mono">Monocromática</a></li>
-      <li><a href="#protecao">Proteção</a></li>
-      <li><a href="#incorreto">Uso Incorreto</a></li>
-      <li><a href="#tipografia">Tipografia</a></li>
-      <li><a href="#cores">Cores</a></li>
-      <li><a href="#proporcao">Proporção</a></li>
-      <li><a href="#arquivos">Arquivos</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
+<!-- NAV DESKTOP -->
+<nav>
+  <div class="nav-logo">IEHP</div>
+  <ul>
+    <li><a href="#capa">Início</a></li>
+    <li><a href="#marca">Marca</a></li>
+    <li><a href="#mono">Monocromática</a></li>
+    <li><a href="#protecao">Proteção</a></li>
+    <li><a href="#incorreto">Uso Incorreto</a></li>
+    <li><a href="#tipografia">Tipografia</a></li>
+    <li><a href="#cores">Cores</a></li>
+    <li><a href="#proporcao">Proporção</a></li>
+    <li><a href="#arquivos">Arquivos</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
 <!-- MENU MOBILE -->
 <div class="mobile-menu" id="mobileMenu">
@@ -476,358 +459,353 @@
   </ul>
 </div>
 
-<main>
-  <!-- ══ 01 CAPA ══ -->
-  <section id="capa">
-    <div class="capa-bg"></div>
-    <div class="capa-grid-lines"></div>
-    <div class="capa-circle-1"></div>
-    <div class="capa-circle-2"></div>
-    <div class="capa-circle-3"></div>
-    <div class="capa-content">
-      <div class="capa-tag">Identidade Visual Oficial</div>
-      <h1 class="capa-h1">
-        Guia de<br>Aplicação
-        <span>da Marca</span>
-      </h1>
-      <p class="capa-desc">
-        Este guia reúne as <strong>diretrizes oficiais</strong> para o uso correto da
-        <strong>identidade visual</strong> da Igreja Evangélica Holiness de Pompeia,
-        garantindo consistência e reconhecimento em todas as <strong>comunicações</strong>.
-      </p>
-      <div class="capa-divider"></div>
-      <div class="capa-meta">
+<!-- ══ 01 CAPA ══ -->
+<section id="capa">
+  <div class="capa-bg"></div>
+  <div class="capa-grid-lines"></div>
+  <div class="capa-circle-1"></div>
+  <div class="capa-circle-2"></div>
+  <div class="capa-circle-3"></div>
+  <div class="capa-content">
+    <div class="capa-tag">Identidade Visual Oficial</div>
+    <h1 class="capa-h1">
+      Guia de<br>Aplicação
+      <span>da Marca</span>
+    </h1>
+    <p class="capa-desc">
+      Este guia reúne as <strong>diretrizes oficiais</strong> para o uso correto da
+      <strong>identidade visual</strong> da Igreja Evangélica Holiness de Pompeia,
+      garantindo consistência e reconhecimento em todas as <strong>comunicações</strong>.
+    </p>
+    <div class="capa-divider"></div>
+    <div class="capa-meta">
+      <div>
+        <div class="capa-meta-label">Versão</div>
+        <div class="capa-meta-value">V 1.0</div>
+      </div>
+      <div>
+        <div class="capa-meta-label">Data</div>
+        <div class="capa-meta-value">Junho 2026</div>
+      </div>
+      <div>
+        <div class="capa-meta-label">Organização</div>
+        <div class="capa-meta-value">IEHP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 MARCA PRINCIPAL ══ -->
+<section id="marca">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Marca Principal</div>
+  <div class="section-desc">
+    A versão horizontal é a versão principal da Marca e deve ser utilizada
+    preferencialmente em todas as aplicações. Sempre utilize os arquivos
+    digitais originais para preservar a estrutura e a proporção.
+  </div>
+  <div class="logo-grid">
+    <div class="logo-card bg-white">
+      <img src="logo-holiness_cor.png" alt="Logo IEHP Colorido">
+      <div class="logo-card-label">Sobre Fundo Branco</div>
+    </div>
+    <div class="logo-card bg-black">
+      <img src="logo-holiness_branco.png" alt="Logo IEHP Branco">
+      <div class="logo-card-label">Sobre Fundo Preto</div>
+    </div>
+    <div class="logo-card bg-blue">
+      <img src="logo-holiness_branco.png" alt="Logo IEHP Branco">
+      <div class="logo-card-label">Sobre Fundo Azul</div>
+    </div>
+    <div class="logo-card bg-gray">
+      <img src="logo-holiness_branco.png" alt="Logo IEHP Branco">
+      <div class="logo-card-label">Sobre Fundo Cinza</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 MONOCROMÁTICA ══ -->
+<section id="mono">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Marca Monocromática</div>
+  <div class="section-desc">
+    Sobre cores não presentes na identidade visual da IEHP ou em situações
+    de limitação técnica (como impressão a uma cor), adotamos a Marca
+    monocromática — preta (positiva) ou branca (negativa).
+  </div>
+  <div class="mono-grid">
+    <div class="mono-card" style="background:#fff;border:1px solid #eee;">
+      <img src="logo-holiness_preto.png" alt="Logo Preto">
+      <div class="mono-label" style="color:#000;">Positiva — Preta</div>
+    </div>
+    <div class="mono-card" style="background:#000;">
+      <img src="logo-holiness_branco.png" alt="Logo Branco">
+      <div class="mono-label" style="color:#fff;">Negativa — Branca</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 ÁREA DE PROTEÇÃO ══ -->
+<section id="protecao">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Área de Proteção</div>
+  <div class="section-desc">
+    Para garantir o impacto visual e a legibilidade da Marca IEHP, é fundamental
+    respeitar a área de proteção em todo o contorno. A Marca também possui
+    tamanhos mínimos para impressão e meios digitais.
+  </div>
+  <div class="protection-wrap">
+    <div class="protection-preview">
+      <img src="logo-holiness_cor.png" alt="Logo IEHP">
+    </div>
+    <div class="protection-cards">
+      <div class="protection-card">
+        <h4>Impressão — Largura Mínima</h4>
+        <p>25 <span style="font-size:14px;font-weight:300;">mm</span></p>
+        <span>dimensão mínima em materiais físicos</span>
+      </div>
+      <div class="protection-card">
+        <h4>Digital — Largura Mínima</h4>
+        <p>80 <span style="font-size:14px;font-weight:300;">px</span></p>
+        <span>dimensão mínima em meios digitais</span>
+      </div>
+      <div class="protection-card">
+        <h4>Área de Proteção</h4>
+        <p>X<span style="font-size:14px;font-weight:300;">/2</span></p>
+        <span>metade da largura do símbolo em todo o contorno</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 USO INCORRETO ══ -->
+<section id="incorreto">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Uso Incorreto</div>
+  <div class="section-desc">
+    Consistência é fundamental para a construção de uma marca forte.
+    Abaixo estão usos incorretos da Marca IEHP que prejudicam essa consistência
+    e seu reconhecimento.
+  </div>
+  <div class="incorrect-grid">
+    <div class="incorrect-card">
+      <div class="incorrect-x">✕</div>
+      <img src="logo-holiness_cor.png" alt="" style="transform:scaleX(1.6);">
+      <p>Não distorcer a Marca</p>
+    </div>
+    <div class="incorrect-card">
+      <div class="incorrect-x">✕</div>
+      <img src="logo-holiness_cor.png" alt="" style="transform:rotate(15deg);">
+      <p>Não rotacionar a Marca</p>
+    </div>
+    <div class="incorrect-card">
+      <div class="incorrect-x">✕</div>
+      <img src="logo-holiness_cor.png" alt="" style="filter:drop-shadow(4px 4px 8px rgba(0,0,0,0.6));">
+      <p>Não aplicar sombras</p>
+    </div>
+    <div class="incorrect-card">
+      <div class="incorrect-x">✕</div>
+      <img src="logo-holiness_cor.png" alt="" style="filter:hue-rotate(120deg);">
+      <p>Não alterar as cores</p>
+    </div>
+    <div class="incorrect-card">
+      <div class="incorrect-x">✕</div>
+      <img src="logo-holiness_cor.png" alt="" style="opacity:0.25;">
+      <p>Não aplicar transparência</p>
+    </div>
+    <div class="incorrect-card">
+      <div class="incorrect-x">✕</div>
+      <img src="logo-holiness_cor.png" alt="" style="transform:scaleY(0.5);">
+      <p>Não alterar as proporções</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 TIPOGRAFIA ══ -->
+<section id="tipografia">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Tipografia</div>
+  <div class="section-desc">
+    A tipografia escolhida é a <strong>Montserrat</strong>. Utilizamos três pesos:
+    Light, Bold e ExtraBold — aplicados em títulos, chamadas, textos corridos e legendas.
+  </div>
+  <div class="typo-wrap">
+    <div class="typo-weights">
+      <div class="typo-card">
+        <div class="typo-sample-big" style="font-weight:300;">Aa</div>
         <div>
-          <div class="capa-meta-label">Versão</div>
-          <div class="capa-meta-value">V 1.0</div>
+          <div class="typo-name">Montserrat Light</div>
+          <div class="typo-weight-desc">Peso 300 — Textos corridos e legendas</div>
         </div>
+      </div>
+      <div class="typo-card">
+        <div class="typo-sample-big" style="font-weight:700;">Aa</div>
         <div>
-          <div class="capa-meta-label">Data</div>
-          <div class="capa-meta-value">Junho 2026</div>
+          <div class="typo-name">Montserrat Bold</div>
+          <div class="typo-weight-desc">Peso 700 — Subtítulos e destaques</div>
         </div>
+      </div>
+      <div class="typo-card">
+        <div class="typo-sample-big" style="font-weight:900;">Aa</div>
         <div>
-          <div class="capa-meta-label">Organização</div>
-          <div class="capa-meta-value">IEHP</div>
+          <div class="typo-name">Montserrat ExtraBold</div>
+          <div class="typo-weight-desc">Peso 900 — Títulos e chamadas principais</div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="typo-hierarchy">
+      <h3>Hierarquia Tipográfica</h3>
+      <div class="hier-row"><span class="hier-tag">H1</span><span class="h1-s">Título Principal</span></div>
+      <div class="hier-row"><span class="hier-tag">H2</span><span class="h2-s">Subtítulo</span></div>
+      <div class="hier-row"><span class="hier-tag">H3</span><span class="h3-s">Chamada</span></div>
+      <div class="hier-row"><span class="hier-tag">Body</span><span class="body-s">Texto corrido e parágrafos</span></div>
+      <div class="hier-row"><span class="hier-tag">Cap.</span><span class="cap-s">Legendas e notas de rodapé</span></div>
+    </div>
+  </div>
+</section>
 
-  <!-- ══ 02 MARCA PRINCIPAL ══ -->
-  <section id="marca">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Marca Principal</div></h2>
-    <div class="section-desc">
-      A versão horizontal é a versão principal da Marca e deve ser utilizada
-      preferencialmente em todas as aplicações. Sempre utilize os arquivos
-      digitais originais para preservar a estrutura e a proporção.
-    </div>
-    <div class="logo-grid">
-      <div class="logo-card bg-white">
-        <img src="logo-holiness_cor.png" alt="Logo IEHP Colorido aplicado sobre fundo branco">
-        <div class="logo-card-label">Sobre Fundo Branco</div>
-      </div>
-      <div class="logo-card bg-black">
-        <img src="logo-holiness_branco.png" alt="Logo IEHP Branco aplicado sobre fundo preto">
-        <div class="logo-card-label">Sobre Fundo Preto</div>
-      </div>
-      <div class="logo-card bg-blue">
-        <img src="logo-holiness_branco.png" alt="Logo IEHP Branco aplicado sobre fundo azul">
-        <div class="logo-card-label">Sobre Fundo Azul</div>
-      </div>
-      <div class="logo-card bg-gray">
-        <img src="logo-holiness_branco.png" alt="Logo IEHP Branco aplicado sobre fundo cinza">
-        <div class="logo-card-label">Sobre Fundo Cinza</div>
+<!-- ══ 07 CORES ══ -->
+<section id="cores">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Paleta de Cores</div>
+  <div class="section-desc">
+    A paleta de cores da IEHP é essencial para manter a consistência visual
+    em todas as aplicações, fortalecendo o reconhecimento da marca em todos
+    os materiais e canais de comunicação.
+  </div>
+  <div class="colors-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:#2596be;"></div>
+      <div class="color-info">
+        <div class="color-name">Azul IEHP</div>
+        <div class="color-codes">
+          <div class="color-code">HEX <span>#2596BE</span></div>
+          <div class="color-code">RGB <span>37 · 150 · 190</span></div>
+          <div class="color-code">CMYK <span>81 · 21 · 0 · 25</span></div>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#000000;"></div>
+      <div class="color-info">
+        <div class="color-name">Preto</div>
+        <div class="color-codes">
+          <div class="color-code">HEX <span>#000000</span></div>
+          <div class="color-code">RGB <span>0 · 0 · 0</span></div>
+          <div class="color-code">CMYK <span>0 · 0 · 0 · 100</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#ffffff;border-bottom:1px solid #eee;"></div>
+      <div class="color-info">
+        <div class="color-name">Branco</div>
+        <div class="color-codes">
+          <div class="color-code">HEX <span>#FFFFFF</span></div>
+          <div class="color-code">RGB <span>255 · 255 · 255</span></div>
+          <div class="color-code">CMYK <span>0 · 0 · 0 · 0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- ══ 03 MONOCROMÁTICA ══ -->
-  <section id="mono">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Marca Monocromática</div></h2>
-    <div class="section-desc">
-      Sobre cores não presentes na identidade visual da IEHP ou em situações
-      de limitação técnica (como impressão a uma cor), adotamos a Marca
-      monocromática — preta (positiva) ou branca (negativa).
-    </div>
-    <div class="mono-grid">
-      <div class="mono-card" style="background:#fff;border:1px solid #eee;">
-        <img src="logo-holiness_preto.png" alt="Versão monocromática positiva preta da logo">
-        <div class="mono-label" style="color:#000;">Positiva — Preta</div>
+<!-- ══ 08 PROPORÇÃO ══ -->
+<section id="proporcao">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Proporção de Aplicação</div>
+  <div class="section-desc">
+    As cores da IEHP em proporção de aplicação — o quanto cada uma deve
+    estar presente na comunicação em comparação com as outras.
+    O azul é sempre predominante.
+  </div>
+  <div class="prop-grid">
+    <div class="prop-card">
+      <h3>Comunicação Digital</h3>
+      <div class="prop-bar-group">
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Azul IEHP</span><span>60%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:60%;background:#2596be;"></div></div>
+        </div>
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Branco</span><span>30%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:30%;background:#ccc;"></div></div>
+        </div>
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Preto</span><span>10%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:10%;background:#000;"></div></div>
+        </div>
       </div>
-      <div class="mono-card" style="background:#000;">
-        <img src="logo-holiness_branco.png" alt="Versão monocromática negativa branca da logo">
-        <div class="mono-label" style="color:#fff;">Negativa — Branca</div>
+    </div>
+    <div class="prop-card">
+      <h3>Materiais Impressos</h3>
+      <div class="prop-bar-group">
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Azul IEHP</span><span>50%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:50%;background:#2596be;"></div></div>
+        </div>
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Branco</span><span>35%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:35%;background:#ccc;"></div></div>
+        </div>
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Preto</span><span>15%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:15%;background:#000;"></div></div>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="prop-card">
+      <h3>Apresentações</h3>
+      <div class="prop-bar-group">
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Azul IEHP</span><span>55%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:55%;background:#2596be;"></div></div>
+        </div>
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Branco</span><span>35%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:35%;background:#ccc;"></div></div>
+        </div>
+        <div class="prop-bar-item">
+          <div class="prop-bar-label"><span>Preto</span><span>10%</span></div>
+          <div class="prop-bar-track"><div class="prop-bar-fill" style="width:10%;background:#000;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- ══ 04 ÁREA DE PROTEÇÃO ══ -->
-  <section id="protecao">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Área de Proteção</div></h2>
-    <div class="section-desc">
-      Para garantir o impacto visual e a legibilidade da Marca IEHP, é fundamental
-      respeitar a área de proteção em todo o contorno. A Marca também possui
-      tamanhos mínimos para impressão e meios digitais.
+<!-- ══ 09 ARQUIVOS ══ -->
+<section id="arquivos">
+  <div class="section-label">Identidade Visual</div>
+  <div class="section-title">Arquivos Digitais</div>
+  <div class="section-desc">
+    Os arquivos da Marca, com todas as variações e cores, estão disponíveis
+    nos formatos abaixo. Sempre utilize os arquivos originais para preservar
+    a estrutura e a proporção da Marca IEHP.
+  </div>
+  <div class="files-grid">
+    <div class="file-card">
+      <div class="file-icon">🖼️</div>
+      <div class="file-name">PNG</div>
+      <div class="file-desc">Uso digital geral com fundo transparente</div>
     </div>
-    <div class="protection-wrap">
-      <div class="protection-preview">
-        <img src="logo-holiness_cor.png" alt="Diagrama demonstrativo da área de proteção da logo">
-      </div>
-      <div class="protection-cards">
-        <div class="protection-card">
-          <h4>Impressão — Largura Mínima</h4>
-          <p>25 <span style="font-size:14px;font-weight:300;">mm</span></p>
-          <span>dimensão mínima em materiais físicos</span>
-        </div>
-        <div class="protection-card">
-          <h4>Digital — Largura Mínima</h4>
-          <p>80 <span style="font-size:14px;font-weight:300;">px</span></p>
-          <span>dimensão mínima em meios digitais</span>
-        </div>
-        <div class="protection-card">
-          <h4>Área de Proteção</h4>
-          <p>X<span style="font-size:14px;font-weight:300;">/2</span></p>
-          <span>metade da largura do símbolo em todo o contorno</span>
-        </div>
-      </div>
+    <div class="file-card">
+      <div class="file-icon">✏️</div>
+      <div class="file-name">SVG</div>
+      <div class="file-desc">Vetorial para web e escalabilidade</div>
     </div>
-  </section>
-
-  <!-- ══ 05 USO INCORRETO ══ -->
-  <section id="incorreto">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Uso Incorreto</div></h2>
-    <div class="section-desc">
-      Consistência é fundamental para a construção de uma marca forte.
-      Abaixo estão usos incorretos da Marca IEHP que prejudicam essa consistência
-      e seu reconhecimento.
+    <div class="file-card">
+      <div class="file-icon">📄</div>
+      <div class="file-name">PDF</div>
+      <div class="file-desc">Impressão e apresentações profissionais</div>
     </div>
-    <div class="incorrect-grid">
-      <div class="incorrect-card">
-        <div class="incorrect-x">✕</div>
-        <img src="logo-holiness_cor.png" alt="Exemplo de logo distorcido horizontalmente" style="transform:scaleX(1.6);">
-        <p>Não distorcer a Marca</p>
-      </div>
-      <div class="incorrect-card">
-        <div class="incorrect-x">✕</div>
-        <img src="logo-holiness_cor.png" alt="Exemplo de logo rotacionado" style="transform:rotate(15deg);">
-        <p>Não rotacionar a Marca</p>
-      </div>
-      <div class="incorrect-card">
-        <div class="incorrect-x">✕</div>
-        <img src="logo-holiness_cor.png" alt="Exemplo de logo com sombra projetada paralela" style="filter:drop-shadow(4px 4px 8px rgba(0,0,0,0.6));">
-        <p>Não aplicar sombras</p>
-      </div>
-      <div class="incorrect-card">
-        <div class="incorrect-x">✕</div>
-        <img src="logo-holiness_cor.png" alt="Exemplo de logo com alteração cromática incorreta" style="filter:hue-rotate(120deg);">
-        <p>Não alterar as cores</p>
-      </div>
-      <div class="incorrect-card">
-        <div class="incorrect-x">✕</div>
-        <img src="logo-holiness_cor.png" alt="Exemplo de logo com opacidade reduzida" style="opacity:0.25;">
-        <p>Não aplicar transparência</p>
-      </div>
-      <div class="incorrect-card">
-        <div class="incorrect-x">✕</div>
-        <img src="logo-holiness_cor.png" alt="Exemplo de logo achatado verticalmente" style="transform:scaleY(0.5);">
-        <p>Não alterar as proporções</p>
-      </div>
+    <div class="file-card">
+      <div class="file-icon">🎨</div>
+      <div class="file-name">AI / EPS</div>
+      <div class="file-desc">Edição em softwares Adobe</div>
     </div>
-  </section>
-
-  <!-- ══ 06 TIPOGRAFIA ══ -->
-  <section id="tipografia">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Tipografia</div></h2>
-    <div class="section-desc">
-      A tipografia escolhida é a <strong>Montserrat</strong>. Utilizamos três pesos:
-      Light, Bold e ExtraBold — aplicados em títulos, chamadas, textos corridos e legendas.
-    </div>
-    <div class="typo-wrap">
-      <div class="typo-weights">
-        <div class="typo-card">
-          <div class="typo-sample-big" style="font-weight:300;">Aa</div>
-          <div>
-            <div class="typo-name">Montserrat Light</div>
-            <div class="typo-weight-desc">Peso 300 — Textos corridos e legendas</div>
-          </div>
-        </div>
-        <div class="typo-card">
-          <div class="typo-sample-big" style="font-weight:700;">Aa</div>
-          <div>
-            <div class="typo-name">Montserrat Bold</div>
-            <div class="typo-weight-desc">Peso 700 — Subtítulos e destaques</div>
-          </div>
-        </div>
-        <div class="typo-card">
-          <div class="typo-sample-big" style="font-weight:900;">Aa</div>
-          <div>
-            <div class="typo-name">Montserrat ExtraBold</div>
-            <div class="typo-weight-desc">Peso 900 — Títulos e chamadas principais</div>
-          </div>
-        </div>
-      </div>
-      <div class="typo-hierarchy">
-        <h3>Hierarquia Tipográfica</h3>
-        <div class="hier-row"><span class="hier-tag">H1</span><span class="h1-s">Título Principal</span></div>
-        <div class="hier-row"><span class="hier-tag">H2</span><span class="h2-s">Subtítulo</span></div>
-        <div class="hier-row"><span class="hier-tag">H3</span><span class="h3-s">Chamada</span></div>
-        <div class="hier-row"><span class="hier-tag">Body</span><span class="body-s">Texto corrido e parágrafos</span></div>
-        <div class="hier-row"><span class="hier-tag">Cap.</span><span class="cap-s">Legendas e notas de rodapé</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ 07 CORES (Com Click to Copy) ══ -->
-  <section id="cores">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Paleta de Cores</div></h2>
-    <div class="section-desc">
-      A paleta de cores da IEHP é essencial para manter a consistência visual
-      em todas as aplicações, fortalecendo o reconhecimento da marca em todos
-      os materiais e canais de comunicação. *(Clique nos códigos para copiar)*
-    </div>
-    <div class="colors-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background:#2596be;"></div>
-        <div class="color-info">
-          <div class="color-name">Azul IEHP</div>
-          <div class="color-codes">
-            <div class="color-code" onclick="copyToClipboard('#2596BE')">HEX <span>#2596BE</span></div>
-            <div class="color-code" onclick="copyToClipboard('25, 150, 190')">RGB <span>37 · 150 · 190</span></div>
-            <div class="color-code" onclick="copyToClipboard('81, 21, 0, 25')">CMYK <span>81 · 21 · 0 · 25</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#000000;"></div>
-        <div class="color-info">
-          <div class="color-name">Preto</div>
-          <div class="color-codes">
-            <div class="color-code" onclick="copyToClipboard('#000000')">HEX <span>#000000</span></div>
-            <div class="color-code" onclick="copyToClipboard('0, 0, 0')">RGB <span>0 · 0 · 0</span></div>
-            <div class="color-code" onclick="copyToClipboard('0, 0, 0, 100')">CMYK <span>0 · 0 · 0 · 100</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#ffffff;border-bottom:1px solid #eee;"></div>
-        <div class="color-info">
-          <div class="color-name">Branco</div>
-          <div class="color-codes">
-            <div class="color-code" onclick="copyToClipboard('#FFFFFF')">HEX <span>#FFFFFF</span></div>
-            <div class="color-code" onclick="copyToClipboard('255, 255, 255')">RGB <span>255 · 255 · 255</span></div>
-            <div class="color-code" onclick="copyToClipboard('0, 0, 0, 0')">CMYK <span>0 · 0 · 0 · 0</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ 08 PROPORÇÃO ══ -->
-  <section id="proporcao">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Proporção de Aplicação</div></h2>
-    <div class="section-desc">
-      As cores da IEHP em proporção de aplicação — o quanto cada uma deve
-      estar presente na comunicação em comparação com as outras.
-      O azul é sempre predominante.
-    </div>
-    <div class="prop-grid">
-      <div class="prop-card">
-        <h3>Comunicação Digital</h3>
-        <div class="prop-bar-group">
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Azul IEHP</span><span>60%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:60%;background:#2596be;"></div></div>
-          </div>
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Branco</span><span>30%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:30%;background:#ccc;"></div></div>
-          </div>
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Preto</span><span>10%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:10%;background:#000;"></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="prop-card">
-        <h3>Materiais Impressos</h3>
-        <div class="prop-bar-group">
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Azul IEHP</span><span>50%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:50%;background:#2596be;"></div></div>
-          </div>
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Branco</span><span>35%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:35%;background:#ccc;"></div></div>
-          </div>
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Preto</span><span>15%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:15%;background:#000;"></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="prop-card">
-        <h3>Apresentações</h3>
-        <div class="prop-bar-group">
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Azul IEHP</span><span>55%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:55%;background:#2596be;"></div></div>
-          </div>
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Branco</span><span>35%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:35%;background:#ccc;"></div></div>
-          </div>
-          <div class="prop-bar-item">
-            <div class="prop-bar-label"><span>Preto</span><span>10%</span></div>
-            <div class="prop-bar-track"><div class="prop-bar-fill" style="width:10%;background:#000;"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ 09 ARQUIVOS (Transformados em Links reais) ══ -->
-  <section id="arquivos">
-    <div class="section-label">Identidade Visual</div>
-    <h2><div class="section-title">Arquivos Digitais</div></h2>
-    <div class="section-desc">
-      Os arquivos da Marca, com todas as variações e cores, estão disponíveis
-      nos formatos abaixo. Sempre utilize os arquivos originais para preservar
-      a estrutura e a proporção da Marca IEHP.
-    </div>
-    <div class="files-grid">
-      <a href="logos/iehp_logos_png.zip" class="file-card" download>
-        <div class="file-icon">🖼️</div>
-        <div class="file-name">PNG</div>
-        <div class="file-desc">Uso digital geral com fundo transparente</div>
-      </a>
-      <a href="logos/iehp_logo.svg" class="file-card" download>
-        <div class="file-icon">✏️</div>
-        <div class="file-name">SVG</div>
-        <div class="file-desc">Vetorial para web e escalabilidade</div>
-      </a>
-      <a href="logos/iehp_manual.pdf" class="file-card" download>
-        <div class="file-icon">📄</div>
-        <div class="file-name">PDF</div>
-        <div class="file-desc">Impressão e apresentações profissionais</div>
-      </a>
-      <a href="logos/iehp_logos_vector.ai" class="file-card" download>
-        <div class="file-icon">🎨</div>
-        <div class="file-name">AI / EPS</div>
-        <div class="file-desc">Edição em softwares Adobe</div>
-      </a>
-    </div>
-  </section>
-</main>
-
-<!-- TOAST PARA COPIAR CÓDIGO -->
-<div id="toast" class="toast">Código copiado com sucesso!</div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -837,13 +815,10 @@
 <script>
   function toggleMenu(){
     const m = document.getElementById('mobileMenu');
-    const btn = document.querySelector('.hamburger');
     m.classList.toggle('open');
-    btn.classList.toggle('open');
   }
   function closeMenu(){
     document.getElementById('mobileMenu').classList.remove('open');
-    document.querySelector('.hamburger').classList.remove('open');
   }
   // Fecha menu ao clicar fora
   document.addEventListener('click', function(e){
@@ -851,22 +826,8 @@
     const btn = document.querySelector('.hamburger');
     if(!menu.contains(e.target) && !btn.contains(e.target)){
       menu.classList.remove('open');
-      btn.classList.remove('open');
     }
   });
-
-  // Função para copiar código de cores
-  function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 2500);
-    }).catch(err => {
-      console.error('Erro ao copiar: ', err);
-    });
-  }
 </script>
 
 </body>
