@@ -17,14 +17,14 @@
   html{scroll-behavior:smooth;}
   body{font-family:'Montserrat',sans-serif;background:#fff;color:#000;}
 
-  /* ══ NAV ══ */
+  /* ══ NAV ALTERADO (ALTURA AMPLIGADA PARA 80PX) ══ */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     background:rgba(10,10,10,0.97);
     backdrop-filter:blur(10px);
     display:flex;align-items:center;
     justify-content:space-between;
-    padding:0 32px;height:56px;
+    padding:0 32px;height:80px; /* Aumentado de 56px para 80px */
     border-bottom:1px solid rgba(255,255,255,0.06);
   }
   nav .nav-logo{
@@ -33,10 +33,10 @@
     flex-shrink: 0;
   }
   nav .nav-logo img{
-    width: 85px;          /* Largura padrão que você deseja para o menu */
+    width: 125px;         /* Aumentado proporcionalmente para o novo menu */
     min-width: 80px;      /* GARANTE A DIRETRIZ: Nunca ficará menor que 80px */
-    height: auto;         /* Mantém a proporção correta do logo */
-    max-height: 44px;     /* Evita que ele encoste nas bordas do menu de 64px */
+    height: auto;         
+    max-height: 52px;     /* Excelente folga visual interna na barra de 80px */
     object-fit: contain;
   }
 
@@ -65,7 +65,7 @@
     transition:all .3s;
   }
   .mobile-menu{
-    display:none;position:fixed;top:56px;left:0;right:0;
+    display:none;position:fixed;top:80px;left:0;right:0; /* Ajustado para alinhar com novo nav */
     background:rgba(10,10,10,0.98);z-index:99;
     padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.08);
     backdrop-filter:blur(10px);
@@ -86,7 +86,7 @@
     padding:100px 80px 80px;
     min-height:100vh;
     display:flex;flex-direction:column;justify-content:center;
-    scroll-margin-top: 56px;
+    scroll-margin-top: 80px; /* Ajustado para o novo tamanho do nav */
   }
   section:nth-child(even){background:#f7f7f7;}
 
@@ -109,20 +109,21 @@
     max-width:580px;line-height:1.9;margin-bottom:48px;
   }
 
-  /* ══ CAPA ══ */
+  /* ══ CAPA ALTERADA (ESTRUTURA DE DOIS LADOS) ══ */
   #capa{
     background:var(--preto);
-    justify-content:flex-start;
+    justify-content:center;
+    align-items: center;
     padding:0;
     min-height:100vh;
     position:relative;
     overflow:hidden;
+    display: flex;
   }
   .capa-bg{
     position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 80% 60% at 80% 20%,rgba(37,150,190,0.12) 0%,transparent 60%),
-      radial-gradient(ellipse 60% 80% at 10% 80%,rgba(37,150,190,0.07) 0%,transparent 60%);
+      radial-gradient(ellipse 80% 60% at 50% 50%,rgba(37,150,190,0.12) 0%,transparent 70%);
   }
   .capa-grid-lines{
     position:absolute;inset:0;
@@ -143,13 +144,27 @@
     position:absolute;width:300px;height:300px;border-radius:50%;
     border:1px solid rgba(37,150,190,0.1);bottom:-80px;left:-80px;
   }
+
+  /* Container flexível dividindo texto e imagem */
+  .capa-grid-wrapper {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    width: 100%;
+    max-width: 1280px;
+    padding: 120px 80px 60px;
+    align-items: center;
+    gap: 40px;
+  }
+
   .capa-content{
-    position:relative;z-index:2;
     display:flex;flex-direction:column;
     justify-content:center;
-    width:100%;max-width:900px;
-    min-height:100vh;
-    padding:100px 80px;
+    width:100%;
+    max-width:none;
+    min-height:auto;
+    padding:0;
   }
   .capa-tag{
     display:inline-flex;align-items:center;gap:8px;
@@ -171,15 +186,15 @@
     50%{opacity:.5;transform:scale(1.3);}
   }
   .capa-h1{
-    font-size:clamp(40px,8vw,100px);
+    font-size:clamp(36px,5.5vw,72px);
     font-weight:900;line-height:.95;
-    letter-spacing:-3px;color:#fff;
+    letter-spacing:-2px;color:#fff;
     margin-bottom:32px;text-transform:uppercase;
   }
   .capa-h1 span{color:var(--azul);display:block;}
   .capa-desc{
     font-size:13px;font-weight:300;
-    color:#666;line-height:1.9;
+    color:#888;line-height:1.9;
     margin-bottom:56px;max-width:480px;
   }
   .capa-desc strong{color:var(--azul);font-weight:400;}
@@ -191,9 +206,24 @@
   .capa-meta-label{
     font-size:9px;font-weight:700;
     letter-spacing:3px;text-transform:uppercase;
-    color:#444;margin-bottom:6px;
+    color:#555;margin-bottom:6px;
   }
   .capa-meta-value{font-size:14px;font-weight:700;color:#fff;}
+
+  /* Elemento do Logo no Lado Direito (Área do Círculo Vermelho) */
+  .capa-logo-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .capa-logo-right img {
+    width: 100%;
+    max-width: 340px; /* Tamanho equilibrado para a composição da capa */
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(37,150,190,0.15));
+  }
 
   /* ══ MARCA ══ */
   .logo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
@@ -389,10 +419,15 @@
     nav ul{display:none;}
     .hamburger{display:flex;}
 
-    section{padding:90px 32px 60px;}
+    section{padding:110px 32px 60px;}
 
-    .capa-content{padding:90px 32px 60px;}
+    /* Mudança estrutural da capa no tablet */
+    .capa-grid-wrapper{grid-template-columns:1fr;text-align:center;padding:120px 32px 60px;gap:60px;}
+    .capa-tag{margin-left:auto;margin-right:auto;}
     .capa-h1{letter-spacing:-1px;}
+    .capa-desc{margin-left:auto;margin-right:auto;}
+    .capa-meta{justify-content:center;}
+    .capa-logo-right img{max-width:280px;}
 
     .logo-grid{grid-template-columns:1fr 1fr;}
     .mono-grid{grid-template-columns:1fr 1fr;}
@@ -408,17 +443,19 @@
 
   /* ══ RESPONSIVO — MOBILE (max 600px) ══ */
   @media(max-width:600px){
-    nav{padding:0 20px;}
-    nav .nav-logo{font-size:12px;letter-spacing:2px;}
+    nav{padding:0 20px;height:80px;}
+    nav .nav-logo img{width:105px;max-height:42px;}
+    .mobile-menu{top:80px;}
 
-    section{padding:80px 20px 52px;min-height:auto;}
+    section{padding:100px 20px 52px;min-height:auto;}
 
-    .capa-content{padding:80px 20px 52px;min-height:100vh;}
+    .capa-grid-wrapper{padding:110px 20px 52px;}
     .capa-tag{font-size:8px;letter-spacing:2px;padding:6px 12px;}
-    .capa-h1{font-size:clamp(36px,11vw,56px);letter-spacing:-1px;margin-bottom:20px;}
+    .capa-h1{font-size:clamp(32px,10vw,48px);letter-spacing:-1px;margin-bottom:20px;}
     .capa-desc{font-size:12px;margin-bottom:36px;}
     .capa-meta{gap:24px;}
     .capa-meta-value{font-size:12px;}
+    .capa-logo-right img{max-width:210px;}
 
     .section-title{font-size:clamp(22px,7vw,32px);}
     .section-desc{font-size:12px;margin-bottom:32px;}
@@ -461,7 +498,7 @@
 </head>
 <body>
 
-<!-- NAV DESKTOP -->
+<!-- NAV DESKTOP (ALTURA E LARGURA DO LOGO CORRIGIDOS) -->
 <nav>
 <div class="nav-logo">
   <img src="logos/logo-holiness_branco.png" alt="IEHP">
@@ -497,38 +534,47 @@
   </ul>
 </div>
 
-<!-- ══ 01 CAPA ══ -->
+<!-- ══ 01 CAPA ATUALIZADA (COM DOIS LADOS E IMAGEM DO LOGO) ══ -->
 <section id="capa">
   <div class="capa-bg"></div>
   <div class="capa-grid-lines"></div>
   <div class="capa-circle-1"></div>
   <div class="capa-circle-2"></div>
   <div class="capa-circle-3"></div>
-  <div class="capa-content">
-    <div class="capa-tag">Identidade Visual Oficial</div>
-    <h1 class="capa-h1">
-      Guia de<br>Aplicação
-      <span>da Marca</span>
-    </h1>
-    <p class="capa-desc">
-      Este guia reúne as <strong>diretrizes oficiais</strong> para o uso correto da
-      <strong>identidade visual</strong> da Igreja Evangélica Holiness de Pompeia,
-      garantindo consistência e reconhecimento em todas as <strong>comunicações</strong>.
-    </p>
-    <div class="capa-divider"></div>
-    <div class="capa-meta">
-      <div>
-        <div class="capa-meta-label">Versão</div>
-        <div class="capa-meta-value">V 1.0</div>
+  
+  <div class="capa-grid-wrapper">
+    <!-- LADO ESQUERDO: CONTEÚDO EM TEXTO -->
+    <div class="capa-content">
+      <div class="capa-tag">Identidade Visual Oficial</div>
+      <h1 class="capa-h1">
+        Guia de<br>Aplicação
+        <span>da Marca</span>
+      </h1>
+      <p class="capa-desc">
+        Este guia reúne as <strong>diretrizes oficiais</strong> para o uso correto da
+        <strong>identidade visual</strong> da Igreja Evangélica Holiness de Pompeia,
+        garantindo consistência e reconhecimento em todas as <strong>comunicações</strong>.
+      </p>
+      <div class="capa-divider"></div>
+      <div class="capa-meta">
+        <div>
+          <div class="capa-meta-label">Versão</div>
+          <div class="capa-meta-value">V 1.0</div>
+        </div>
+        <div>
+          <div class="capa-meta-label">Data</div>
+          <div class="capa-meta-value">Junho 2026</div>
+        </div>
+        <div>
+          <div class="capa-meta-label">Organização</div>
+          <div class="capa-meta-value">IEHP</div>
+        </div>
       </div>
-      <div>
-        <div class="capa-meta-label">Data</div>
-        <div class="capa-meta-value">Junho 2026</div>
-      </div>
-      <div>
-        <div class="capa-meta-label">Organização</div>
-        <div class="capa-meta-value">IEHP</div>
-      </div>
+    </div>
+
+    <!-- LADO DIREITO: LOGO DA HOLINESS (NA ÁREA CIRCULADA EM VERMELHO EM "edited-image.png") -->
+    <div class="capa-logo-right">
+      <img src="logos/logo-holiness_branco.png" alt="Logotipo Holiness">
     </div>
   </div>
 </section>
